@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $obj = (object)['id' => 1];
+    dump(isset(optional($obj)->id));
+    dump(optional($obj)->id);
+    dump(isset(optional($obj)['id']));
+    dump(optional($obj)['id']);
+
+    $obj = ['id' => 1];
+    dump(isset(optional($obj)->id));
+    dump(optional($obj)->id);
+    dump(isset(optional($obj)['id']));
+    dump(optional($obj)['id']);
 });
