@@ -15,7 +15,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $obj = (object)['id' => 1];
+        $obj = (object) ['id' => 1];
         dump(isset(optional($obj)->id));
         dump(optional($obj)->id);
         dump(isset(optional($obj)['id']));
