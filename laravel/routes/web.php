@@ -26,3 +26,13 @@ Route::get('/', function () {
     dump(isset(optional($obj)['id']));
     dump(optional($obj)['id']);
 });
+
+Route::get('/geo', function () {
+    $model = \App\Model\Home::query()->find(1);
+    return [
+        $model->geo->toArray(),
+        $model->title,
+        $model->lat,
+        $model->lon,
+    ];
+});

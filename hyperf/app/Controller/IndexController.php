@@ -11,6 +11,9 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Caster\Geo;
+use App\Model\Home;
+
 class IndexController extends Controller
 {
     public function index()
@@ -33,6 +36,25 @@ class IndexController extends Controller
             'user' => $user,
             'method' => $method,
             'message' => 'Hello Hyperf.',
+        ]);
+    }
+
+    public function geo()
+    {
+        // $model = new Home();
+        // $model->title = 'test';
+        // $model->geo = new Geo(1.1, 2.2);
+        // $model->lat = 1.0;
+        // $model->lon = 1.1;
+        // $model->save();
+
+        /** @var Home $model */
+        $model = Home::query()->find(1);
+        return $this->response->success([
+            $model->geo->toArray(),
+            $model->title,
+            $model->lat,
+            $model->lon,
         ]);
     }
 }

@@ -22,7 +22,7 @@ use App\Caster\GeoCaster;
  * @property \Carbon\Carbon $updated_at
  * @property \App\Caster\Geo $geo
  */
-class Home extends Model
+class Home extends \Illuminate\Database\Eloquent\Model
 {
     /**
      * The table associated with the model.
